@@ -67,6 +67,14 @@ let
                 ((if (isZero(sub n 1)))
                 1
                 ((add (R (pred n)) (R (pred(pred n))))));
-    Fib = Y S_Fib
+    Fib = Y S_Fib;
+
+--arruma os negocio ai em cima fernando!!!
+
+
+--função da letra d, que inverte a fração do par se o primeiro termo é diferente de 0
+    invFrac = \p. if (isZero (fst p)) 
+                (p)
+                (swap p);
 in
-   Fib 7
+   invFrac pair 2 5
