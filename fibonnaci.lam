@@ -49,11 +49,15 @@ let
 
     Y = \f. (\x. f (x x)) (\x. f (x x));
 
+    --
+
     S_fat = \R. \n. if (isZero n)
                     1
                     (mult n (R (pred n)));
 
     fat = Y S_fat;
+
+    --COMEÇO DO TRABALHO:
 
     S_mult_4 = \R. \n. if (not (menor n 4))
                        (R (sub n 4))
@@ -65,8 +69,9 @@ let
     S_Fib = \R. \n. if (isZero n)
                 0
                 ((if (isZero(sub n 1)))
-                1
-                ((add (R (pred n)) (R (pred(pred n))))));
+                    1
+                    ((add (R (pred n)) (R (pred(pred n))))));
+
     Fib = Y S_Fib;
 
 --arruma os negocio ai em cima fernando!!!
@@ -76,5 +81,22 @@ let
     invFrac = \p. if (isZero (fst p)) 
                 (p)
                 (swap p);
+
+--função da letra e: recebe dois pares e multiplica os componentes correspondentes em um terceiro par que é devolvido
+
+    multFrac = \p1 p2. pair (mult (fst p1) (fst p2)) (mult (snd p1) (snd p2));
+
+--função da letra f: recebe dois pares (a,b) e (c,d) e devolve (ad+bc,bd), somando frações
+
+    somaFrac = \p1 p2. pair (add (mult (fst p1) (snd(p2))) (mult (snd p1) (fst p2))) (mult (snd p1) (snd p2));
+
+--função da letra g, que recebe uma lista e retorna sua soma
+
+    S_somaLista = \R l. if (isEmpty l)
+                        0
+                        (add (head l) (R (tail l)));
+
+    somaLista= Y S_somaLista;
+  
 in
-   invFrac pair 2 5
+   somaFrac (pair 1 3) (pair 2 3)
