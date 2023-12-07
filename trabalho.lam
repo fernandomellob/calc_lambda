@@ -114,7 +114,7 @@ let
                     1
                     ((add (R (pred n)) (R (pred(pred n))))));
 
-    Fib = Y S_Fib;
+    fib = Y S_Fib;
 
 
 
