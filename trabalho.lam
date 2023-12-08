@@ -102,7 +102,7 @@ let
                         0
                         (add (head l) (R (tail l)));
 
-    somaLista= Y S_somaLista;
+    somaLista = Y S_somaLista;
 
 
 
@@ -116,10 +116,4 @@ let
 
     fib = Y S_Fib;
 
-
-
-
-
-  
 in
-   somaFrac (pair 1 3) (pair 2 3)
